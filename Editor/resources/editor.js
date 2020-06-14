@@ -16,7 +16,25 @@ var squares = ['0,0,0'];
 var labels = { '0,0,0' : '' };
 var directions = { '0,0,0' : '' };
 
+// Advanced User Function
+function changeUser() {
+  if (document.getElementById('advancedBox').checked === true) {
+    localStorage.setItem('advancedUser', 'true');
+  }
+  else {
+    localStorage.setItem('advancedUser', 'false');
+  }
+}
+
 window.onload = function() {
+
+  // Advanced User Controller
+  if (typeof localStorage.advancedUser === 'undefined') localStorage.setItem('advancedUser', 'false');
+  else if (localStorage.getItem('advancedUser') === 'true') {
+    document.getElementById('advancedBox').checked = true;
+  }
+
+  if (localStorage.advancedUser === 'true') roomScripts = {'0,0,0' : "roomName(`Start<br>Screen`);\n\n"};
 
   // Create a JavaScript code editor
   textEditor = CodeMirror($('#codeEditor')[0], {
@@ -311,7 +329,7 @@ function hyperlink() {
 }
 function hyperlink_carryOn() {
   addToEditor("print(hyperlink(" + washUserInput('#hyperlinkInput', true) + ", function() {\n");
-  addToEditor("// Add any code you want executed when the user clicks on the hyperlink below this comment!\n");
+  if (localStorage.advancedUser === 'false') addToEditor("// Add any code you want executed when the user clicks on the hyperlink below this comment!\n");
   addToEditor("\n");
   addToEditor('}));');
 }
@@ -332,7 +350,7 @@ function addRoomObjectAction(string) {
 }
 function addRoomObjectAction_carryOn(string) {
   addToEditor("add" + string.charAt(0).toUpperCase() + string.slice(1) + "ObjectAction(" + washUserInput('#' + string + 'ObjectInput1', true) + ", " + washUserInput('#' + string + 'ObjectInput2', true) + ", function() {\n");
-  addToEditor("// Add any code you want executed when the user chooses to do the above action below this comment!\n");
+  if (localStorage.advancedUser === 'false') addToEditor("// Add any code you want executed when the user chooses to do the above action below this comment!\n");
   addToEditor("\n");
   addToEditor('});');
 }
@@ -400,7 +418,7 @@ function setTimer() {
 function setTimer_carryOn() {
   //$ timers.push($('#timerNameInput')[0].value);
   addToEditor(`timer_` + $('#timerNameInput')[0].value + ` = setTimeout(function() {\n`);
-  addToEditor("// Add any code you want executed when the timer gets to 0 below this comment!\n");
+  if (localStorage.advancedUser === 'false') addToEditor("// Add any code you want executed when the timer gets to 0 below this comment!\n");
   addToEditor("\n");
   addToEditor('}, ' + $('#timerTimeInput')[0].value + ');');
 }
@@ -510,7 +528,7 @@ function ifStatement_carryOn() {
   }
   command += ') {\n';
   addToEditor(command);
-  addToEditor('// Add any actions you wanted executed when the above conditions are met below this comment!\n');
+  if (localStorage.advancedUser === 'false') addToEditor('// Add any actions you wanted executed when the above conditions are met below this comment!\n');
   addToEditor('\n');
   addToEditor('}');
 }
@@ -518,7 +536,7 @@ function ifStatement_carryOn() {
 function elseStatement() {
   destroyMenus();
   addToEditor('else {\n');
-  addToEditor("// Add any actions you want executed if none of the above 'if' statements are run below this comment!\n");
+  if (localStorage.advancedUser === 'false') addToEditor("// Add any actions you want executed if none of the above 'if' statements are run below this comment!\n");
   addToEditor('\n');
   addToEditor('}');
 }

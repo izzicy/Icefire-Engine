@@ -236,3 +236,7 @@ input:focus, input:active, textarea:focus, textarea:active, input:hover, textare
 #field2, #field3, #field4, #field5 {
   display: none;
 }
+
+#checkLabel {
+  color: yellow;
+}
