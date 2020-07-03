@@ -3,6 +3,11 @@ A non-programmer-friendly game engine for creating Quest-like, cross-platform Te
 
 TUTORIAL: https://youtu.be/ax2jOb14gpM
 
+# How to Run the Program
+Download and extract the ZIP file of the latest release or the repository itself. Open the file "Editor/Icefire Editor.html" in either Chrome or Firefox - no other browsers have been tested. This will bring up the game editor - it runs in your browser, fully offline.
+
+# About
+
 ## Features
 * Automatic map generation
 * In-built game-saving mechanism
@@ -23,9 +28,6 @@ TUTORIAL: https://youtu.be/ax2jOb14gpM
 * Support for Timers
 
 (All the above can be used right now only if you're familiar with HTML and JavaScript.)
-
-# How to Run the Program
-Download and extract the ZIP file of the latest release or the repository itself. Open the file "Editor/Icefire Editor.html" in either Chrome or Firefox - no other browsers have been tested. This will bring up the game editor - it runs in your browser, fully offline.
 
 # How to Use the Editor
 The editor is made up of 3 tabs - the "Map" tab, the "Room Script" tab and the "Publish Game" tab.
