@@ -19,6 +19,7 @@ Download and extract the ZIP file of the latest release or the repository itself
 * Room names cannot be changed dynamically - you can name a room immediately when the player enters it, but don't trigger this function after any sort of click (e.g. player clicks on hyperlink or interacts with an object) as it will break the game.
 * The CLEAR ALL TEXT command literally clears all text on screen, even if there are vital hyperlinks there that the player needs to click in order to progress into the game. We plan to make sure that hyperlinks are not deleted if they're still active.
 * Text boxes that take in variable names (orange) don't yet verify whether they're valid, so please follow the instructions in the tooltip for naming variables!
+* You can only edit PRINT statements that have the entire line to themselves - if a line begins with 'else', for example, you can't edit the PRINT command that follows.
 
 ## Planned Additional Features
 * Support for Audio
