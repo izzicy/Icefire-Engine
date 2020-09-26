@@ -1,8 +1,6 @@
 # Icefire-Engine
 A non-programmer-friendly game engine for creating Quest-like, cross-platform Text Adventure games.
 
-TUTORIAL: https://youtu.be/ax2jOb14gpM
-
 # How to Run the Program
 Download and extract the ZIP file of the latest release or the repository itself. Open the file "Editor/Icefire Editor.html" in either Chrome or Firefox - no other browsers have been tested. This will bring up the game editor - it runs in your browser, fully offline.
 
