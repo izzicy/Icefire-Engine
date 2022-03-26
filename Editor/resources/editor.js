@@ -878,6 +878,7 @@ function uploadImage() {
   destroyMenus();
   $('#imageDialog').dialog('open');
   $('#img')[0].value = '';
+  $('imgurl').val('');
 }
 
 function uploadImage_carryOn() {
