@@ -273,6 +273,7 @@ html {
   border-color: #000;
   border-width: 4px;
   position: absolute;
+  z-index: 1;
   text-align: center;
   color: #000;
 }
@@ -285,6 +286,7 @@ html {
   border-color: #000;
   background-color: transparent;
   position: absolute;
+  z-index: 1;
 }
 .horizontalLine {
   border-width: 4px;
@@ -295,6 +297,7 @@ html {
   border-color: #000;
   background-color: transparent;
   position: absolute;
+  z-index: 1;
 }
 .uphillLineContainer {
   box-sizing: border-box;
@@ -302,6 +305,7 @@ html {
   height: 64px;
   background-color: transparent;
   position: absolute;
+  z-index: 1;
 }
 .diagonalLine {
   border-width: 4px;
@@ -313,6 +317,7 @@ html {
   background-color: transparent;
   transform-origin: 32px 50%;
   position: absolute;
+  z-index: 1;
   bottom: calc((-94px + 64px) / 2);
 }
 .uphillLine {
