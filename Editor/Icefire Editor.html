@@ -91,6 +91,13 @@
         </ul>
       </li>
       <li>
+        <div>Image</div>
+        <ul>
+          <li class="menuRightItem" onclick="uploadImage();"><div>Display/overwrite an image</div></li>
+          <li class="menuRightItem" onclick="removeImage();"><div>Remove image on display</div></li>
+        </ul>
+      </li>
+      <li>
         <div>Exits</div>
         <ul>
           <li class="menuRightItem" onclick="addExits('add');"><div>Add Exits</div></li>
@@ -390,6 +397,15 @@
     <div id="teleportDialog" title="Teleport player to...">
       <p>Please enter the coordinates of the room you would like to teleport the player to...</p>
       <div>Coordinates: (&nbsp;&nbsp;<input type="number" step="1" id="t-x" class="dialogInputs pureText">&nbsp;&nbsp;,&nbsp;&nbsp;<input type="number" step="1" id="t-y" class="dialogInputs pureText">&nbsp;&nbsp;,&nbsp;&nbsp;<input type="number" step="1" id="t-z" class="dialogInputs pureText">&nbsp;&nbsp;)</div>
+    </div>
+    <!-- END OF DIALOG -->
+
+    <!-- TELEPORT DIALOG -->
+    <div id="imageDialog" title="Insert image...">
+      <p>Please upload an image...</p>
+      <input type="file" accept="image/png, image/jpeg" id="img" class="dialogInputs">
+      <p>...or paste the url of the image you'd like to display...</p>
+      <input type="text" id="imgurl" class="dialogInputs">
     </div>
     <!-- END OF DIALOG -->
 

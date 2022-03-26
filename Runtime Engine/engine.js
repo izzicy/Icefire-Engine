@@ -98,7 +98,6 @@ function onGameLoad() {
     dom_map.style.opacity = 1;
     document.getElementById("shadow").style.borderTopLeftRadius = 0;
     document.getElementById("shadow").style.borderBottomLeftRadius = 0;
-    dom_map.style.backgroundColor = "#AAA";
     map_btn.classList.toggle("active_bottom_btn");
     dom_map.style.opacity = 1;
     game_btn.innerHTML = "<span style='text-decoration: line-through'>Console</span>";
@@ -130,7 +129,6 @@ function onGameLoad() {
     }
     else if (string === "map" && !(map_btn.classList.contains("active_bottom_btn"))) {
       map_btn.classList.toggle("active_bottom_btn");
-      dom_map.style.backgroundColor = "#AAA";
       dom_map.style.opacity = "1";
       dom_map.style.pointerEvents = "auto";
       dom_mask.style.visibility = "hidden";
@@ -949,4 +947,14 @@ function killGame() {
   nukeHyperlinks();
   print("<b>The game has ended.</b>");
   print(hyperlink("Restart Game",function(){ location.reload(); }));
+}
+
+// Image
+
+function image(source) {
+  document.getElementById("background").style.backgroundImage = "url(" + source + ")";
+}
+
+function removeImage() {
+  document.getElementById("background").style.backgroundImage = '';
 }

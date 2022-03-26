@@ -149,6 +149,12 @@ window.onload = function() {
       buttons: [{ text: "OK", click: function() { if ($('#t-x')[0].value !== '' && $('#t-y')[0].value !== '' && $('#t-z')[0].value !== '' && $('#t-x')[0].value.indexOf('.') === -1 && $('#t-y')[0].value.indexOf('.') === -1 && $('#t-z')[0].value.indexOf('.') === -1) { teleport_carryOn(); $(this).dialog('close'); } else { alert('The coordinates entered are not valid!'); } } }],
       width: 800
     });
+    $('#imageDialog').dialog({
+      appendTo: '#tabs-2',
+      autoOpen : false,
+      buttons: [{ text: "OK", click: function() { var file = $('#img')[0].files[0]; var url = $('#imgurl').val(); if (file || url) { uploadImage_carryOn(); $(this).dialog('close'); } else { alert('You must upload a file or insert an url!'); } } }],
+      width: 800
+    });
     $('#ifDialog').dialog({
       appendTo: '#tabs-2',
       autoOpen : false,
@@ -855,4 +861,39 @@ function exportGame() {
   var game = array[0] + "\n\n" + exportScript(false) + "\n\n" + array[1];
   var data = 'data:text/html;charset=utf-8,' + encodeURIComponent(game);
   invisibleDownloader(data, 'game.html');
+}
+
+// Image upload
+
+function getBase64(file) {
+  return new Promise(function(resolve, reject) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
+function uploadImage() {
+  destroyMenus();
+  $('#imageDialog').dialog('open');
+  $('#img')[0].value = '';
+}
+
+function uploadImage_carryOn() {
+  var file = $('#img')[0].files[0];
+  var url = $('#imgurl').val();
+
+  if (file) {
+    getBase64(file).then(function(data) {
+      addToEditor('image(`' + data + '`);');
+    });
+  } else {
+    addToEditor('image(`' + url + '`);');
+  }
+}
+
+function removeImage() {
+  destroyMenus();
+  addToEditor('removeImage();');
 }
